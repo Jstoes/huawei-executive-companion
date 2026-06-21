@@ -15,7 +15,7 @@ export type ItineraryItem = {
 
 export type TripDay = {
   day: number
-  date: string // ISO date (local)
+  date: string
   label: string
   city: string
   country: string
@@ -30,76 +30,121 @@ export const DAYS: TripDay[] = [
     label: "Departure",
     city: "Windhoek → Shanghai",
     country: "Namibia → China",
-    summary: "Departure from Hosea Kutako International. Long-haul transit to Shanghai Pudong.",
+    summary: "Departure from Hosea Kutako Airport and arrival at Shanghai Pudong Airport.",
     items: [
-      { time: "08:00", title: "Delegation assembly", detail: "Hosea Kutako Intl (WDH) — VIP lounge briefing", type: "logistics" },
-      { time: "10:45", title: "Departure WDH", detail: "Outbound flight via Johannesburg", type: "travel" },
-      { time: "23:30", title: "Connection", detail: "International transit & boarding for Shanghai", type: "travel" },
+      { time: "12:30", title: "Check-in", detail: "Hosea Kutako Airport", type: "logistics" },
+      { time: "14:30", title: "Fly", detail: "Hosea Kutako Airport (ET834 + ET684)", type: "travel" },
+      { time: "15:15", title: "Arrived in Shanghai", detail: "Shanghai Pudong Airport", type: "travel" },
     ],
   },
   {
     day: 2,
     date: "2026-06-23",
-    label: "Arrival Shanghai",
+    label: "Arrival in Shanghai",
     city: "Shanghai",
     country: "China",
-    summary: "Arrival at Shanghai Pudong, transfer to hotel, welcome briefing.",
+    summary: "Arrival logistics, dinner, transfer to hotel and check-in.",
     items: [
-      { time: "17:20", title: "Arrival PVG", detail: "Shanghai Pudong International Airport", type: "travel" },
-      { time: "19:00", title: "Hotel check-in", detail: "Executive transfer to downtown Shanghai", type: "logistics" },
-      { time: "20:30", title: "Welcome dinner", detail: "Huawei host reception & agenda overview", type: "meeting" },
+      { time: "17:00–17:50", title: "En route", detail: "From the airport to the dinner location", type: "travel" },
+      { time: "18:00–19:30", title: "Dinner", detail: "Dinner restaurant", type: "logistics" },
+      { time: "19:30–19:40", title: "En route", detail: "Restaurant to hotel", type: "travel" },
+      { time: "19:40–20:00", title: "Check-in", detail: "Mandarin Oriental, Pudong, Shanghai", type: "logistics" },
     ],
   },
   {
     day: 3,
     date: "2026-06-24",
-    label: "Shanghai Engagements",
+    label: "Huawei Executive Engagements",
     city: "Shanghai",
     country: "China",
-    summary: "Executive briefings and Huawei innovation centre tour.",
+    summary:
+      "Huawei Exhibition Hall, investment planning and financing solutions, MOU communication, fibre advancement, copper phase-out, 5G-A and wireless target network sessions.",
     items: [
-      { time: "09:00", title: "Strategy briefing", detail: "Carrier network modernisation roadmap", type: "meeting" },
-      { time: "13:30", title: "Innovation centre", detail: "5G-A & cloud infrastructure showcase", type: "visit" },
-      { time: "16:00", title: "Partnership session", detail: "Telecom Namibia x Huawei alignment", type: "meeting" },
+      { time: "08:00–08:30", title: "Breakfast", detail: "Mandarin Oriental, Pudong, Shanghai", type: "logistics" },
+      { time: "08:30–09:00", title: "En route", detail: "Hotel - Huawei Exhibition Hall", type: "travel" },
+      { time: "09:00–10:00", title: "Visit Huawei Exhibition Hall", detail: "Huawei Exhibition Hall", type: "visit" },
+      {
+        time: "10:10–11:40",
+        title: "High-level communication",
+        detail: "Communication on theme investment planning and financing solutions; sign the MOU agreement",
+        type: "meeting",
+      },
+      { time: "12:00–13:00", title: "Lunch", detail: "Restaurant", type: "logistics" },
+      { time: "13:10–14:40", title: "En route", detail: "The restaurant is heading to Huawei's Lian Qiuhu", type: "travel" },
+      {
+        time: "15:00–16:00",
+        title: "Special Topic Exchange",
+        detail: "Discussion on the Business Plan for Fiber Optic Advancement and Copper Wire Phase-Out",
+        type: "meeting",
+      },
+      { time: "16:20–16:50", title: "Park Tour + 5G-A Experience", detail: "Huawei Lian Qiuhu", type: "visit" },
+      { time: "17:10–18:10", title: "Special Topic Exchange", detail: "Wireless Target Network Strategy Exchange", type: "meeting" },
+      { time: "18:30–20:00", title: "Dinner", detail: "Restaurant", type: "logistics" },
+      { time: "20:10–21:40", title: "En route", detail: "Restaurant to Hotel", type: "travel" },
     ],
   },
   {
     day: 4,
     date: "2026-06-25",
-    label: "Shanghai → Guiyang",
-    city: "Shanghai → Guiyang",
+    label: "Telecom Service Centre and Shanghai Engagements",
+    city: "Shanghai",
     country: "China",
-    summary: "Domestic transfer to Guiyang, the data hub of Guizhou province.",
+    summary:
+      "Tianyi Vision Exhibition Hall, Shanghai Telecom Zhangyang Road Service Center, home networking packages discussion, Shanghai tour and Huangpu River night cruise.",
     items: [
-      { time: "08:30", title: "Domestic flight", detail: "PVG → KWE, transfer to Guiyang", type: "travel" },
-      { time: "12:00", title: "Arrival Guiyang", detail: "Hotel check-in & lunch", type: "logistics" },
-      { time: "15:00", title: "Site orientation", detail: "Guizhou data centre region overview", type: "visit" },
+      { time: "08:30–09:00", title: "Breakfast", detail: "Hotel", type: "logistics" },
+      { time: "09:10–09:50", title: "En route", detail: "Hotel - Tianyi Vision Exhibition Hall", type: "travel" },
+      { time: "10:00–12:00", title: "Exhibition Hall Visit", detail: "Tianyi Vision Exhibition Hall", type: "visit" },
+      { time: "12:30–14:00", title: "Lunch", detail: "Restaurant", type: "logistics" },
+      {
+        time: "14:10–14:40",
+        title: "En route",
+        detail: "Restaurant - Shanghai Telecom Zhangyang Road Service Center",
+        type: "travel",
+      },
+      {
+        time: "15:00–16:00",
+        title: "Home networking discussion",
+        detail: "Introduction to home networking packages, tariff design, marketing scripts, etc.",
+        type: "meeting",
+      },
+      { time: "16:20–18:40", title: "Shanghai Tour", detail: "Within Shanghai City", type: "leisure" },
+      { time: "18:50–19:50", title: "Night Cruise on the Huangpu River", detail: "Boat tours", type: "leisure" },
     ],
   },
   {
     day: 5,
     date: "2026-06-26",
-    label: "Guiyang Programme",
-    city: "Guiyang",
+    label: "Shanghai to Guiyang",
+    city: "Shanghai → Guiyang",
     country: "China",
-    summary: "Cloud & data centre deep-dive, sustainability and operations.",
+    summary: "Shanghai free time, transfer to Hongqiao Airport, flight to Guiyang, dinner and hotel check-in.",
     items: [
-      { time: "09:00", title: "Data centre tour", detail: "Green energy cooling & operations", type: "visit" },
-      { time: "13:00", title: "Tech workshop", detail: "Cloud migration & managed services", type: "meeting" },
-      { time: "18:00", title: "Cultural evening", detail: "Guizhou heritage experience", type: "leisure" },
+      { time: "08:30–09:00", title: "Breakfast", detail: "Hotel", type: "logistics" },
+      { time: "09:00–11:00", title: "Shanghai Free Time Activity", detail: "Within Shanghai City", type: "leisure" },
+      { time: "11:10–12:00", title: "En route", detail: "Head to Terminal 2 at Hongqiao Airport", type: "travel" },
+      { time: "13:50–16:45", title: "The plane is en route", detail: "Shanghai - Guiyang", type: "travel" },
+      { time: "17:40–18:40", title: "Dinner", detail: "Restaurant", type: "logistics" },
+      { time: "18:50–19:30", title: "En route", detail: "Restaurant - Kempinski Hotel", type: "travel" },
+      { time: "19:40", title: "Check-in Procedure", detail: "Hotel Kempinski", type: "logistics" },
     ],
   },
   {
     day: 6,
     date: "2026-06-27",
-    label: "Guiyang → Return",
+    label: "Guiyang Data Centre and 5G-A Experience",
     city: "Guiyang → Shanghai",
     country: "China",
-    summary: "Wrap-up sessions and return routing to Shanghai for departure.",
+    summary: "Guizhou Yunshangtun exhibition hall visit, park tour, 5G-A experience, data centre tour and return flight to Shanghai.",
     items: [
-      { time: "09:30", title: "Closing review", detail: "Action items & memorandum sign-off", type: "meeting" },
-      { time: "14:00", title: "Return flight", detail: "KWE → PVG connection", type: "travel" },
-      { time: "20:00", title: "Departure prep", detail: "Overnight before international leg", type: "logistics" },
+      { time: "08:30–09:00", title: "Breakfast", detail: "Hotel Kempinski", type: "logistics" },
+      { time: "09:00–10:00", title: "En route", detail: "The hotel is heading to Yunshangtun in Guizhou", type: "travel" },
+      { time: "10:30–11:30", title: "Exhibition Hall Visit", detail: "Guizhou Yunshangtun", type: "visit" },
+      { time: "11:30–12:00", title: "Park Tour + 5G-A Experience", detail: "Guizhou Yunshangtun", type: "visit" },
+      { time: "12:00–13:30", title: "Lunch", detail: "Guizhou Yunshangtun", type: "logistics" },
+      { time: "14:00–15:00", title: "Data Center Tour", detail: "Guizhou Yunshangtun", type: "visit" },
+      { time: "15:00–16:00", title: "En route", detail: "Guizhou Yunshangtun - Airport", type: "travel" },
+      { time: "18:00–20:45", title: "HO1208", detail: "Guiyang - Shanghai", type: "travel" },
     ],
   },
   {
@@ -108,11 +153,9 @@ export const DAYS: TripDay[] = [
     label: "Return to Windhoek",
     city: "Shanghai → Windhoek",
     country: "China → Namibia",
-    summary: "Long-haul return journey concluding the executive mission.",
+    summary: "Return journey from Shanghai to Windhoek.",
     items: [
-      { time: "07:00", title: "Departure PVG", detail: "International flight homebound", type: "travel" },
-      { time: "13:00", title: "Connection", detail: "Transit via Johannesburg", type: "travel" },
-      { time: "22:10", title: "Arrival WDH", detail: "Mission complete — Hosea Kutako Intl", type: "travel" },
+      { time: "00:20–13:20", title: "En route", detail: "Shanghai - Windhoek (ET685 + ET835)", type: "travel" },
     ],
   },
 ]
@@ -122,39 +165,33 @@ export type Location = {
   country: string
   role: string
   timezone: string
-  utcOffset: number // hours from UTC
+  utcOffset: number
 }
 
 export const LOCATIONS: Location[] = [
   { name: "Windhoek", country: "Namibia", role: "Origin & return", timezone: "CAT", utcOffset: 2 },
-  { name: "Shanghai", country: "China", role: "Strategy & innovation", timezone: "CST", utcOffset: 8 },
-  { name: "Guiyang", country: "China", role: "Cloud & data centre", timezone: "CST", utcOffset: 8 },
+  { name: "Shanghai", country: "China", role: "Executive engagements", timezone: "CST", utcOffset: 8 },
+  { name: "Guiyang", country: "China", role: "Guizhou Yunshangtun programme", timezone: "CST", utcOffset: 8 },
 ]
 
 export const EXECUTIVE_NOTES: { id: string; title: string; body: string; tag: string }[] = [
   {
     id: "n1",
-    title: "Partnership objectives",
-    body: "Secure alignment on network modernisation timeline and confirm managed-services scope for the next fiscal cycle.",
-    tag: "Strategy",
+    title: "Mission note",
+    body: "Add note during the mission.",
+    tag: "Placeholder",
   },
   {
     id: "n2",
-    title: "Protocol reminders",
-    body: "Business attire for all official sessions. Exchange of corporate gifts at the welcome dinner. Confirm interpreter availability.",
-    tag: "Protocol",
-  },
-  {
-    id: "n3",
-    title: "Key contacts",
-    body: "Huawei regional account lead and Guizhou data-centre operations director to be primary points of contact on site.",
-    tag: "Contacts",
+    title: "Follow-up note",
+    body: "Add follow-up note after engagements.",
+    tag: "Placeholder",
   },
 ]
 
 export const OBSERVATIONS: { id: string; day: string; text: string }[] = [
-  { id: "o1", day: "Day 3 · Shanghai", text: "Innovation centre demonstrated mature 5G-Advanced deployment relevant to TN's urban rollout." },
-  { id: "o2", day: "Day 5 · Guiyang", text: "Green-energy cooling model offers a strong sustainability reference for future TN facilities." },
+  { id: "o1", day: "To be captured", text: "Add observation during the mission." },
+  { id: "o2", day: "To be captured", text: "Add Telecom Namibia implication or lesson learned." },
 ]
 
 export type ActionItem = {
@@ -166,9 +203,6 @@ export type ActionItem = {
 }
 
 export const ACTION_ITEMS: ActionItem[] = [
-  { id: "a1", title: "Circulate pre-departure briefing pack", owner: "Office of the CEO", due: "21 Jun", done: true },
-  { id: "a2", title: "Confirm interpreter & protocol arrangements", owner: "Corporate Affairs", due: "23 Jun", done: true },
-  { id: "a3", title: "Draft partnership memorandum of understanding", owner: "Strategy", due: "26 Jun", done: false },
-  { id: "a4", title: "Compile data-centre evaluation report", owner: "Technology", due: "27 Jun", done: false },
-  { id: "a5", title: "Publish post-mission executive summary", owner: "Comms", due: "30 Jun", done: false },
+  { id: "a1", title: "Add action item", owner: "To be assigned", due: "To be confirmed", done: false },
+  { id: "a2", title: "Add follow-up action", owner: "To be assigned", due: "To be confirmed", done: false },
 ]
