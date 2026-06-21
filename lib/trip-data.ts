@@ -2,7 +2,7 @@ export const TRIP = {
   title: "Huawei China Executive Mission",
   year: "2026",
   org: "Telecom Namibia",
-  startDate: "2026-06-22T00:00:00",
+  startDate: "2026-06-22T12:30:00",
   endDate: "2026-06-28T23:59:59",
 }
 
