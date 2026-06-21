@@ -1,0 +1,16 @@
+{
+  "name": "Huawei China Executive Mission Companion 2026",
+  "short_name": "Mission Companion",
+  "description": "Telecom Namibia executive travel companion — Windhoek, Shanghai and Guiyang.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#16243a",
+  "theme_color": "#1e4b8f",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
